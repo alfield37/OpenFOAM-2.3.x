@@ -15,6 +15,14 @@
   from complex fluid flows involving chemical reactions, turbulence and heat
   transfer, to solid dynamics and electromagnetics.
 
+* Abstract
+The following new solver is proposed for OpenFOAM which is called “twoPhaseSpiceDiffusionFoam”. It is a major revised version of the solver “interFoam”. The new solver helps to simulate hydrodynamic problems for two immiscible incompressible colloid fluids that are both stratified (inhomogeneous in concentration of colloid particles).
+This solver was written for a specific scientific problem – to study solutal convection in magnetic fluids undergoing first order phase transition of the “gas-liquid” type, when some colloid particles agglomerate into drops of concentrated liquid (the so called “drop-like aggregates”, that resemble drops of rain in a humid air). In some situations this drops of concentrated phase can gather together and make macroscopic hydrodynamic flows.
+So, the major features of the new solver are the following:
+1. Both liquids are stratified colloids with the same “chemical nature”, but with a surface tension on the phase border (this physical phenomena really takes place). The densities rho_1,  rho_2 in each point of the calculated area is a function of concentration of colloid particles. In the proposed solver a known formula was used for magnetic fluids of “magnetite - oleic acid – kerosene” type.
+2. Gradient diffusion of colloid particles is allowed not only inside the stratified dilute and concentrated liquids, but also between the two phases of colloid. This process should be allowed, because it reflects the process of “vaporing” of the drop-like aggregates.
+3. The viscosity dependence on concentration of particles is taken into account according to modified Chow formula.
+
 * Copyright
   OpenFOAM is free software: you can redistribute it and/or modify it under the
   terms of the GNU General Public License as published by the Free Software
